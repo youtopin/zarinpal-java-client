@@ -8,6 +8,7 @@ import lombok.*;
 @Builder(builderMethodName = "hiddenBuilder", access = AccessLevel.PRIVATE)
 @ToString
 @NoArgsConstructor
+@AllArgsConstructor
 public class PaymentRequest {
     @SerializedName("Amount")
     private Integer amount;
