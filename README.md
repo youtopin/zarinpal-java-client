@@ -51,5 +51,5 @@ Now, `ZarinpalService` has methods for payment request and verification.
 - Q: Why is this documentation not written in persian?
     - Learn english!
     
-- Q: Why using `MerchantProvider` when we could simply pass it as string?
-    - Makes it more dynamic and easier to be changed later, but anyways that was how I needed it to be in our own project. You can change the code. Its very simple code!
+- Q: Why shall we use `MerchantProvider` when we can simply pass it as `String` to the service?
+    - Makes it more dynamic and easier to be changed at runtime, but anyways that was how I needed it to be in our own project. You can change the code. Its very simple code!
