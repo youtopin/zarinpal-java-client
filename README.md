@@ -23,7 +23,7 @@ Then for add the dependency:
 <dependency>
     <groupId>com.github.youtopin</groupId>
     <artifactId>zarinpal-java-client</artifactId>
-    <version>1.0.0-snapshot</version>
+    <version>1.0.1-snapshot</version>
 </dependency>
 ```
 
