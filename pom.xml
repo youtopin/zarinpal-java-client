@@ -6,7 +6,7 @@
 
     <groupId>com.youtopin</groupId>
     <artifactId>zarinpal-java-client</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.2-SNAPSHOT</version>
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp -->

@@ -5,7 +5,7 @@ import lombok.*;
 
 @Getter
 @Setter
-@Builder(builderMethodName = "hiddenBuilder", access = AccessLevel.PRIVATE)
+@Builder(builderMethodName = "hiddenBuilder")
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
