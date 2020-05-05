@@ -23,7 +23,7 @@ Then for add the dependency:
 <dependency>
     <groupId>com.github.youtopin</groupId>
     <artifactId>zarinpal-java-client</artifactId>
-    <version>1.0.2-snapshot</version>
+    <version>1.0.3-snapshot</version>
 </dependency>
 ```
 
@@ -38,6 +38,20 @@ Then you can easily use `ZarinpalService` by passing your implementation of `Mer
 
 Now, `ZarinpalService` has methods for payment request and verification.
 
+## Example
+
+```
+ZarinpalService zarinpalService = new ZarinpalService(new MerchantProvider() {
+        public String getMerchantId() {
+            return "000";
+        }
+    }, Address.Environment.SANDBOX.getAddress());
+
+zarinpalService.paymentRequest(...);
+zarinpalService.paymentVerification(...);
+```
+
+Make sure you use `Address.Environment.PRODUCTION.getAddress()` after your tests are finished.
 
 ---
 
@@ -53,3 +67,8 @@ Now, `ZarinpalService` has methods for payment request and verification.
     
 - Q: Why shall we use `MerchantProvider` when we can simply pass it as `String` to the service?
     - Makes it more dynamic and easier to be changed at runtime, but anyways that was how I needed it to be in our own project. You can change the code. Its very simple code!
+
+- Q: How to switch to sandbox version for test?
+    - Basically the **Example** is using the sandbox. You can switch to production environment after your testing stage is over.
+
+ 
