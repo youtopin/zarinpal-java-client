@@ -2,7 +2,7 @@ package com.youtopin.zarinpal.service;
 
 import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
-import com.youtopin.zarinpal.Address;
+import com.youtopin.zarinpal.api.Address;
 import com.youtopin.zarinpal.domain.PaymentRequest;
 import com.youtopin.zarinpal.domain.PaymentResponse;
 import com.youtopin.zarinpal.domain.VerificationRequest;
@@ -15,10 +15,12 @@ import okhttp3.*;
 public class ZarinpalService {
     private final OkHttpClient okHttpClient;
     private final MerchantProvider merchantProvider;
+    private final Address address;
     private final Gson gson;
     private final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
 
-    public ZarinpalService(MerchantProvider merchantProvider) {
+    public ZarinpalService(MerchantProvider merchantProvider, Address address) {
+        this.address = address;
         this.okHttpClient = OkHttpClientFactory.okHttpClient();
         this.merchantProvider = merchantProvider;
         gson = new Gson();
@@ -29,14 +31,14 @@ public class ZarinpalService {
         String json = gson.toJson(new PaymentRequestWrapper(merchantProvider.getMerchantId(), paymentRequest));
         RequestBody requestBody = RequestBody.create(json, JSON);
         Request request = new Request.Builder()
-                .url(Address.PAYMENT_REQUEST)
+                .url(address.paymentRequestAddress())
                 .post(requestBody)
                 .build();
         Response response = okHttpClient.newCall(request).execute();
         PaymentResponse paymentResponse = gson.fromJson(response.body().string(), PaymentResponse.class);
 
         if(paymentResponse.getStatus() == 100){
-            paymentResponse.setUrl(Address.START_PAY + paymentResponse.getAuthority());
+            paymentResponse.setUrl(address.startPayAddress() + paymentResponse.getAuthority());
         }
 
         return paymentResponse;
@@ -47,7 +49,7 @@ public class ZarinpalService {
         String json = gson.toJson(new VerificationRequestWrapper(merchantProvider.getMerchantId(), verificationRequest));
         RequestBody requestBody = RequestBody.create(json, JSON);
         Request request = new Request.Builder()
-                .url(Address.PAYMENT_VERIFICATION)
+                .url(address.paymentVerificationAddress())
                 .post(requestBody)
                 .build();
         Response response = okHttpClient.newCall(request).execute();
