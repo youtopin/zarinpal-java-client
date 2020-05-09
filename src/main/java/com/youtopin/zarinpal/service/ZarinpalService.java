@@ -29,7 +29,7 @@ public class ZarinpalService {
     @SneakyThrows
     public PaymentResponse paymentRequest(PaymentRequest paymentRequest){
         String json = gson.toJson(new PaymentRequestWrapper(merchantProvider.getMerchantId(), paymentRequest));
-        RequestBody requestBody = RequestBody.create(json, JSON);
+        RequestBody requestBody = RequestBody.create(JSON, json);
         Request request = new Request.Builder()
                 .url(address.paymentRequestAddress())
                 .post(requestBody)
@@ -47,7 +47,7 @@ public class ZarinpalService {
     @SneakyThrows
     public VerificationResponse paymentVerification(VerificationRequest verificationRequest){
         String json = gson.toJson(new VerificationRequestWrapper(merchantProvider.getMerchantId(), verificationRequest));
-        RequestBody requestBody = RequestBody.create(json, JSON);
+        RequestBody requestBody = RequestBody.create(JSON, json);
         Request request = new Request.Builder()
                 .url(address.paymentVerificationAddress())
                 .post(requestBody)
