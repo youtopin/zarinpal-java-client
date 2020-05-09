@@ -1,6 +1,6 @@
 package com.youtopin.zarinpal.domain;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 @Getter
@@ -10,15 +10,15 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PaymentRequest {
-    @SerializedName("Amount")
+    @JsonProperty("Amount")
     private Integer amount;
-    @SerializedName("Description")
+    @JsonProperty("Description")
     private String description;
-    @SerializedName("Email")
+    @JsonProperty("Email")
     private String email;
-    @SerializedName("Mobile")
+    @JsonProperty("Mobile")
     private String mobile;
-    @SerializedName("CallbackUrl")
+    @JsonProperty("CallbackURL")
     private String callbackUrl;
 
     public static PaymentRequestBuilder builder(Integer amount, String description){

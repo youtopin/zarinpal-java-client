@@ -1,14 +1,14 @@
 package com.youtopin.zarinpal.domain;
 
-import com.google.gson.annotations.SerializedName;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
 public class VerificationResponse {
-    @SerializedName("RefID")
+    @JsonProperty("RefID")
     private Integer refId;
-    @SerializedName("Status")
+    @JsonProperty("Status")
     private Integer status;
 }

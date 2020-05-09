@@ -3,7 +3,6 @@ package com.youtopin.zarinpal;
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
-import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 
@@ -14,8 +13,7 @@ public class UserAgentInterceptor implements Interceptor {
         this.userAgent = userAgent;
     }
 
-    @NotNull
-    public Response intercept(@NotNull Chain chain) throws IOException {
+    public Response intercept(Chain chain) throws IOException {
         Request originalRequest = chain.request();
         Request requestWithUserAgent = originalRequest.newBuilder()
                 .header("User-Agent", userAgent)

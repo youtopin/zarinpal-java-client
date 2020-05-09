@@ -14,8 +14,9 @@ public class OkHttpClientFactory {
 
     public static OkHttpClient okHttpClient(){
         if(okHttpClient == null){
-            okHttpClient = new OkHttpClient();
-            okHttpClient.networkInterceptors().add(new UserAgentInterceptor("ZarinPal Rest Api v1"));
+            okHttpClient = new OkHttpClient.Builder()
+                    .addInterceptor(new UserAgentInterceptor("ZarinPal Rest Api v1"))
+                    .build();
         }
         return okHttpClient;
     }
