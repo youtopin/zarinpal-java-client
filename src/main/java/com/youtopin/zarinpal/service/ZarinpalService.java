@@ -22,6 +22,15 @@ public class ZarinpalService {
     private final ObjectMapper objectMapper;
     private final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
 
+    public ZarinpalService(final String merchantId, Address address){
+        this(new MerchantProvider() {
+            @Override
+            public String getMerchantId() {
+                return merchantId;
+            }
+        }, address);
+    }
+
     public ZarinpalService(MerchantProvider merchantProvider, Address address) {
         this.address = address;
         this.okHttpClient = OkHttpClientFactory.okHttpClient();

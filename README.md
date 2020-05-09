@@ -66,7 +66,8 @@ Make sure you use `Address.Environment.PRODUCTION.getAddress()` after your tests
     - Learn english!
 
 - Q: Why shall we use `MerchantProvider` when we can simply pass it as `String` to the service?
-    - Makes it more dynamic and easier to be changed at runtime, but anyways that was how I needed it to be in our own project. You can change the code. Its very simple code!
+    - Makes it more dynamic and easier to be changed at runtime, but anyways that was how I needed it to be in our own project.
+    **Update**: String constructor has been added.
 
 - Q: How to switch to sandbox version for test?
     - Basically the **Example** is using the sandbox. You can switch to production environment after your testing stage is over.
