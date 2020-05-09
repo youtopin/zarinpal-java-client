@@ -18,7 +18,7 @@ public class PaymentRequest {
     private String email;
     @JsonProperty("Mobile")
     private String mobile;
-    @JsonProperty("CallbackUrl")
+    @JsonProperty("CallbackURL")
     private String callbackUrl;
 
     public static PaymentRequestBuilder builder(Integer amount, String description){

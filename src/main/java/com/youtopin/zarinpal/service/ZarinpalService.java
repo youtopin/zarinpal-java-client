@@ -38,7 +38,7 @@ public class ZarinpalService {
                 .url(address.paymentRequestAddress())
                 .post(requestBody)
                 .build();
-        log.trace("Sending json -> " + json + " to " + address.paymentRequestAddress());
+        log.debug("Sending json -> " + json + " to " + address.paymentRequestAddress());
         Response response = okHttpClient.newCall(request).execute();
         PaymentResponse paymentResponse = objectMapper.readValue(response.body().string(), PaymentResponse.class);
 
@@ -53,7 +53,7 @@ public class ZarinpalService {
     public VerificationResponse paymentVerification(VerificationRequest verificationRequest){
         String json = objectMapper.writeValueAsString(new VerificationRequestWrapper(merchantProvider.getMerchantId(), verificationRequest));
         RequestBody requestBody = RequestBody.create(JSON, json);
-        log.trace("Sending json -> " + json + " to " + address.paymentVerificationAddress());
+        log.debug("Sending json -> " + json + " to " + address.paymentVerificationAddress());
         Request request = new Request.Builder()
                 .url(address.paymentVerificationAddress())
                 .post(requestBody)
