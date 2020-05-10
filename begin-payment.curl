@@ -1,0 +1,9 @@
+curl --request POST \
+  --url https://sandbox.zarinpal.com/pg/rest/WebGate/PaymentRequest.json \
+  --header 'content-type: application/json' \
+  --data '{
+	"Amount": 10000,
+	"Description": "Test",
+	"CallbackURL": "https://yourdomain.com",
+	"MerchantID": "00000000-0000-0000-0000-000000000000"
+}'
