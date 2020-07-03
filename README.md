@@ -2,7 +2,7 @@
 
 [![](https://jitpack.io/v/youtopin/zarinpal-java-client.svg)](https://jitpack.io/#youtopin/zarinpal-java-client)
 
-Zarinpal Java Client is a *simple* library used for zarinpal restful gateway.  
+Zarinpal Java Client is a *simple* library used for zarinpal restful gateway. **This is not written by zarinpal developer and not for the company itself, therefore you should note that this is not an official client**
 
 It is called a simple library because it does not handle the status codes for you, and it only covers payment request and verification.
 
