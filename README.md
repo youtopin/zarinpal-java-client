@@ -32,9 +32,9 @@ If you are using gradle, sbt, or leiningen, see [Jitpack](https://jitpack.io/#yo
 ## Usage
 
 This library does not force you to enter the `MerchantCode` directly into services.
-Instead you should implement `com.youtopin.zarinpal.service.MerchantProvider` and return the `MerchantCode` in any ways that suits you.
+Instead you should implement `com.youtopin.zarinpal.service.MerchantProvider` and return the `MerchantCode` in any ways that suits you. Then you can easily use `ZarinpalService` by passing your implementation of `MerchantProvider` as constructor parameter. You are done.
 
-Then you can easily use `ZarinpalService` by passing your implementation of `MerchantProvider` as constructor parameter. You are done.
+**UPDATE**: You can now pass `String` as merchantId to `ZarinpalService`. 
 
 Now, `ZarinpalService` has methods for payment request and verification.
 
