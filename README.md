@@ -2,7 +2,7 @@
 
 [![](https://jitpack.io/v/youtopin/zarinpal-java-client.svg)](https://jitpack.io/#youtopin/zarinpal-java-client)
 
-Zarinpal Java Client is a *simple* library used for zarinpal restful gateway.  
+Zarinpal Java Client is a *simple* library used for zarinpal restful gateway. **This is not written by zarinpal developer and not for the company itself, therefore you should note that this is not an official client**
 
 It is called a simple library because it does not handle the status codes for you, and it only covers payment request and verification.
 
@@ -23,7 +23,7 @@ Then for add the dependency:
 <dependency>
     <groupId>com.github.youtopin</groupId>
     <artifactId>zarinpal-java-client</artifactId>
-    <version>1.0.8-snapshot</version>
+    <version>1.2.0-release</version>
 </dependency>
 ```
 
@@ -32,9 +32,9 @@ If you are using gradle, sbt, or leiningen, see [Jitpack](https://jitpack.io/#yo
 ## Usage
 
 This library does not force you to enter the `MerchantCode` directly into services.
-Instead you should implement `com.youtopin.zarinpal.service.MerchantProvider` and return the `MerchantCode` in any ways that suits you.
+Instead you should implement `com.youtopin.zarinpal.service.MerchantProvider` and return the `MerchantCode` in any ways that suits you. Then you can easily use `ZarinpalService` by passing your implementation of `MerchantProvider` as constructor parameter. You are done.
 
-Then you can easily use `ZarinpalService` by passing your implementation of `MerchantProvider` as constructor parameter. You are done.
+**UPDATE**: You can now pass `String` as merchantId to `ZarinpalService`. 
 
 Now, `ZarinpalService` has methods for payment request and verification.
 
