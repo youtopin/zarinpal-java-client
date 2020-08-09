@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 public class VerificationResponse {
     @JsonProperty("RefID")
-    private Integer refId;
+    private Long refId;
     @JsonProperty("Status")
     private Integer status;
 }
